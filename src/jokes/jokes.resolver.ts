@@ -1,7 +1,7 @@
 import { Args, Query, Resolver } from '@nestjs/graphql'
 
-// import { JokeInput } from './graphql/inputs/joke.input'
-// import { JokeType } from './graphql/types/joke.type'
+import { JokeInput } from './graphql/inputs/joke.input'
+import { JokeType } from './graphql/types/joke.type'
 import { JokesService } from './jokes.service'
 
 @Resolver(() => String)
@@ -15,10 +15,8 @@ export class JokesResolver {
         return 'pong'
     }
 
-    @Query(() => String, {
-        description: 'Returns joke by category',
-    })
-    async getJoke(@Args('input') input: string): Promise<string> {
+    @Query(() => JokeType)
+    async getJoke(@Args('input') input: JokeInput): Promise<JokeType> {
         const response = await this._jokesService.getJokeWithAsync(input)
 
         return response

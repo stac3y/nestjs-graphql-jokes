@@ -2,10 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Joke {
+  joke: String!
+}
+
 type Query {
   """Returns pong"""
   ping: String!
+  getJoke(input: JokeInput!): Joke!
+}
 
-  """Returns joke by category"""
-  getJoke(input: String!): String!
+input JokeInput {
+  category: String!
 }
