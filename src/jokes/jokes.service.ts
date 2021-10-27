@@ -1,42 +1,28 @@
+import { Injectable } from '@nestjs/common'
 import axios from 'axios'
 
-export class Joke {
+// import { JokeInput } from './graphql/inputs/joke.input'
+
+@Injectable()
+export class JokesService {
     /**
      * Function for geting a joke by category with async/await
      *
      * @param category - category of a joke
      * @returns promise with a joke
      */
-    static async getJokeWithAsync(category: string = 'Any'): Promise<string> {
+    async getJokeWithAsync(category: string): Promise<string> {
+        // const {category}  = input
         try {
             const res = await axios.get(
                 `https://v2.jokeapi.dev/joke/${category}`,
             )
-            return res.data['type'] === 'single'
-                ? res.data['joke']
-                : `${res.data['setup']} \n${res.data['delivery']}`
+            return res.data.type === 'single'
+                ? res.data.joke
+                : `${res.data.setup} \n${res.data.delivery}`
         } catch (err) {
-            console.error(err)
+            throw new Error(err)
         }
-    }
-
-    /**
-     *   Function for geting a joke by category with promise.then().catch()
-     *
-     * @param category - category of a joke
-     * @returns promise with a joke
-     */
-    static getJokeWithPromise(category: string = 'Any'): Promise<string> {
-        return axios
-            .get(`https://v2.jokeapi.dev/joke/${category}`)
-            .then((res) => {
-                return res.data['type'] === 'single'
-                    ? res.data['joke']
-                    : `${res.data['setup']} \n${res.data['delivery']}`
-            })
-            .catch((err) => {
-                console.log(err)
-            })
     }
 
     /**
@@ -61,6 +47,7 @@ export class Joke {
                 `There is no such category. Possible categories: ${categories}`,
             )
             return false
-        } else return true
+        }
+        return true
     }
 }

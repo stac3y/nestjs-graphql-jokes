@@ -1,0 +1,11 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  """Returns pong"""
+  ping: String!
+
+  """Returns joke by category"""
+  getJoke(input: String!): String!
+}
