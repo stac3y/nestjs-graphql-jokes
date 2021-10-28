@@ -2,6 +2,18 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  email: String!
+}
+
+type Auth {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Float!
+  refreshToken: String!
+  idToken: String
+}
+
 type Flags {
   nsfw: Boolean!
   religious: Boolean!
@@ -37,18 +49,6 @@ type Jokes {
   id: Float
   safe: Boolean
   lang: String
-}
-
-type User {
-  email: String!
-}
-
-type Auth {
-  accessToken: String!
-  tokenType: String!
-  expiresIn: Float!
-  refreshToken: String!
-  idToken: String
 }
 
 type Query {
