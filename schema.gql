@@ -39,8 +39,21 @@ type Jokes {
   lang: String
 }
 
+type User {
+  email: String!
+}
+
+type Auth {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Float!
+  refreshToken: String!
+  idToken: String
+}
+
 type Query {
   getJoke(input: JokeInput!): Jokes!
+  signIn(input: UserInput!): Auth!
 }
 
 input JokeInput {
@@ -48,4 +61,14 @@ input JokeInput {
   blacklistFlags: [String!]
   type: String
   amount: Float
+}
+
+input UserInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  signUp(input: UserInput!): User!
+  refreshToken(accessToken: String!, refreshToken: String!): Auth!
 }

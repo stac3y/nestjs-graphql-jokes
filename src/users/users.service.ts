@@ -19,13 +19,12 @@ export class UsersService {
 
     async createUser(input: UserInterface): Promise<UserEntity> {
         try {
-            const { username, email, password } = input
+            const { email, password } = input
             const hashedPassword = await this.hashPassword(password)
 
             const user = this._usersRepository.create({
                 password: hashedPassword,
                 email,
-                username,
             })
 
             return await this._usersRepository.save(user)

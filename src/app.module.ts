@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { config } from './config/config'
 import { typeOrmConfig } from './config/typeorm.config'
 import { JokesModule } from './jokes/jokes.module'
+import { UsersModule } from './users/users.module'
+import { AuthModule } from './auth/auth.module'
 
 @Module({
     imports: [
@@ -18,6 +20,8 @@ import { JokesModule } from './jokes/jokes.module'
             introspection: true,
         }),
         JokesModule,
+        UsersModule,
+        AuthModule
     ],
 })
 export class AppModule {}
