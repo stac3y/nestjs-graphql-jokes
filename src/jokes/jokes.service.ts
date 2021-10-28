@@ -14,10 +14,10 @@ export class JokesService {
      * @returns promise with a joke
      */
     async getJokeWithAsync(input: JokeInput): Promise<JokeInterface> {
-        const { category } = input
+        const { category, type, blacklistFlags } = input
         try {
             const res = await axios.get(
-                `https://v2.jokeapi.dev/joke/${category}`,
+                `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=${blacklistFlags}&type=${type}`,
             )
             /* return res.data.type === 'single'
                 ? res.data.joke
@@ -33,7 +33,7 @@ export class JokesService {
      *
      * @param category - category of a joke
      * @returns true if category exists or false if don't
-     */
+     
     static checkCategory(category: string): boolean {
         const categories = [
             'Any',
@@ -52,5 +52,5 @@ export class JokesService {
             return false
         }
         return true
-    }
+    } */
 }

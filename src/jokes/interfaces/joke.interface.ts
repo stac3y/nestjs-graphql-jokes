@@ -3,13 +3,15 @@ export interface JokeInterface {
     category: string
     type: string
     joke: string
+    setup: string
+    delivery: string
     flags: FlagsInterface
     id: number
     safe: boolean
     lang: string
 }
 
-interface FlagsInterface {
+export interface FlagsInterface {
     nsfw: boolean
     religious: boolean
     political: boolean

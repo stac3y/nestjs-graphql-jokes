@@ -2,8 +2,23 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Flags {
+  nsfw: Boolean!
+  religious: Boolean!
+  political: Boolean!
+  racist: Boolean!
+  sexist: Boolean!
+  explicit: Boolean!
+}
+
 type Joke {
-  joke: String!
+  error: Boolean
+  category: String!
+  type: String!
+  joke: String
+  setup: String
+  delivery: String
+  flags: Flags!
 }
 
 type Query {
@@ -14,4 +29,7 @@ type Query {
 
 input JokeInput {
   category: String!
+  blacklistFlags: [String!]!
+  type: String!
+  amount: Float!
 }
