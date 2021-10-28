@@ -2,15 +2,15 @@ import { Field, InputType } from '@nestjs/graphql'
 
 @InputType()
 export class JokeInput {
-    @Field()
-    category?: string
+    @Field({ nullable: true })
+    category: string
 
-    @Field(() => [String])
-    blacklistFlags?: string[]
+    @Field(() => [String], { nullable: true })
+    blacklistFlags: string[]
 
-    @Field()
+    @Field({ nullable: true })
     type: string
 
-    @Field()
+    @Field({ nullable: true })
     amount: number
 }

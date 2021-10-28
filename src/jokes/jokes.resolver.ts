@@ -8,13 +8,6 @@ import { JokesService } from './jokes.service'
 export class JokesResolver {
     constructor(private readonly _jokesService: JokesService) {}
 
-    @Query(() => String, {
-        description: 'Returns pong',
-    })
-    async ping(): Promise<string> {
-        return 'pong'
-    }
-
     @Query(() => JokeType)
     async getJoke(@Args('input') input: JokeInput): Promise<JokeType> {
         const response = await this._jokesService.getJokeWithAsync(input)

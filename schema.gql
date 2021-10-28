@@ -13,23 +13,24 @@ type Flags {
 
 type Joke {
   error: Boolean
-  category: String!
-  type: String!
+  category: String
+  type: String
   joke: String
   setup: String
   delivery: String
-  flags: Flags!
+  flags: Flags
+  id: Float!
+  safe: Boolean!
+  lang: String!
 }
 
 type Query {
-  """Returns pong"""
-  ping: String!
   getJoke(input: JokeInput!): Joke!
 }
 
 input JokeInput {
-  category: String!
-  blacklistFlags: [String!]!
-  type: String!
-  amount: Float!
+  category: String
+  blacklistFlags: [String!]
+  type: String
+  amount: Float
 }

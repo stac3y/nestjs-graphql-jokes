@@ -25,10 +25,10 @@ export class JokeType {
     @Field(() => Boolean, { nullable: true })
     error: boolean
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
     category: string
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
     type: string
 
     @Field(() => String, { nullable: true })
@@ -40,6 +40,15 @@ export class JokeType {
     @Field(() => String, { nullable: true })
     delivery: string
 
-    @Field(() => FlagsType)
+    @Field(() => FlagsType, { nullable: true })
     flags: FlagsType
+
+    @Field(() => Number)
+    id: number
+
+    @Field(() => Boolean)
+    safe: boolean
+
+    @Field(() => String)
+    lang: string
 }
