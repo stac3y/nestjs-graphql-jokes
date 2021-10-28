@@ -12,7 +12,6 @@ type Flags {
 }
 
 type Joke {
-  error: Boolean
   category: String
   type: String
   joke: String
@@ -24,8 +23,24 @@ type Joke {
   lang: String!
 }
 
+type Jokes {
+  error: Boolean!
+  message: String
+  amount: Float
+  jokes: [Joke!]
+  category: String
+  type: String
+  joke: String
+  setup: String
+  delivery: String
+  flags: Flags
+  id: Float
+  safe: Boolean
+  lang: String
+}
+
 type Query {
-  getJoke(input: JokeInput!): Joke!
+  getJoke(input: JokeInput!): Jokes!
 }
 
 input JokeInput {

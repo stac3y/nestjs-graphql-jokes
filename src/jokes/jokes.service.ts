@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import axios from 'axios'
 
 import { JokeInput } from './graphql/inputs/joke.input'
-import { JokeInterface } from './interfaces/joke.interface'
+import { JokesInterface } from './interfaces/joke.interface'
 
 @Injectable()
 export class JokesService {
@@ -12,7 +12,7 @@ export class JokesService {
      * @param category - category of a joke
      * @returns promise with a joke
      */
-    async getJokeWithAsync(input: JokeInput): Promise<JokeInterface> {
+    async getJokeWithAsync(input: JokeInput): Promise<JokesInterface> {
         const { type } = input
         let { category, blacklistFlags, amount } = input
         if (!category) {

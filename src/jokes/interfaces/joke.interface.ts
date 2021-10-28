@@ -1,5 +1,4 @@
 export interface JokeInterface {
-    error: boolean
     category: string
     type: string
     joke: string
@@ -18,4 +17,20 @@ export interface FlagsInterface {
     racist: boolean
     sexist: boolean
     explicit: boolean
+}
+
+export interface JokesInterface {
+    error: boolean
+    message: string
+    amount: number
+    jokes: [JokeInterface]
+    category: string
+    type: string
+    joke: string
+    setup: string
+    delivery: string
+    flags: FlagsInterface
+    id: number
+    safe: boolean
+    lang: string
 }

@@ -22,9 +22,6 @@ class FlagsType {
 }
 @ObjectType('Joke')
 export class JokeType {
-    @Field(() => Boolean, { nullable: true })
-    error: boolean
-
     @Field(() => String, { nullable: true })
     category: string
 
@@ -50,5 +47,47 @@ export class JokeType {
     safe: boolean
 
     @Field(() => String)
+    lang: string
+}
+
+@ObjectType('Jokes')
+export class JokesType {
+    @Field(() => Boolean)
+    error: boolean
+
+    @Field(() => String, { nullable: true })
+    message: string
+
+    @Field(() => Number, { nullable: true })
+    amount: number
+
+    @Field(() => [JokeType], { nullable: true })
+    jokes: [JokeType]
+
+    @Field(() => String, { nullable: true })
+    category: string
+
+    @Field(() => String, { nullable: true })
+    type: string
+
+    @Field(() => String, { nullable: true })
+    joke: string
+
+    @Field(() => String, { nullable: true })
+    setup: string
+
+    @Field(() => String, { nullable: true })
+    delivery: string
+
+    @Field(() => FlagsType, { nullable: true })
+    flags: FlagsType
+
+    @Field(() => Number, { nullable: true })
+    id: number
+
+    @Field(() => Boolean, { nullable: true })
+    safe: boolean
+
+    @Field(() => String, { nullable: true })
     lang: string
 }
