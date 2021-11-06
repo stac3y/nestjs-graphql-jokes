@@ -13,17 +13,8 @@ export class JokesService {
      * @returns promise with a joke
      */
     async getJokeWithAsync(input: JokeInput): Promise<JokesInterface> {
-        const { type } = input
-        let { category, blacklistFlags, amount } = input
-        if (!category) {
-            category = 'Any'
-        }
-        if (!amount) {
-            amount = 1
-        }
-        if (!blacklistFlags) {
-            blacklistFlags = []
-        }
+        const { category = 'Any', blacklistFlags = [], type, amount = 1 } = input
+
         try {
             const res = await axios.get(
                 `https://v2.jokeapi.dev/joke/${category}?blacklistFlags=${blacklistFlags}&type=${type}&amount=${amount}`,
